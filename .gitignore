@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+node_modules/
+dist/
+.DS_Store
+
+# Local development logs
+console.jsonl
+traces.jsonl
+
+# Foundry generated files
+contracts/out/
+contracts/cache/

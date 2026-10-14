@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Arc Light tokens ─────────────────────────────────────────── */
+:root {
+  --bg: #ffffff;
+  --bg-gradient: linear-gradient(160deg, #f4f7fc 0%, #fffcf8 50%, #faf7f2 100%);
+  --surface: rgba(255, 255, 255, 0.64);
+  --surface-strong: rgba(255, 255, 255, 0.88);
+  --surface-muted: rgba(245, 246, 250, 0.80);
+  --ink: #122d45;
+  --ink-2: #334155;
+  --muted: #6b6580;
+  --subtle: #8a849c;
+  --border: rgba(18, 45, 69, 0.10);
+  --border-strong: rgba(25, 53, 77, 0.45);
+  --accent: #122d45;
+  --accent-hover: #1061a6;
+  --focus: #85b1ed;
+  --success: #1a8047;
+  --danger: #ba2b4c;
+  /* spectral: consumer-only accent strip */
+  --spectral: linear-gradient(90deg, #5fbeff, #af8ff4, #f05c6b, #ffcd83, #7ef1b3);
+}
+
+/* ── Arc Dark tokens (applied via data-theme="dark") ─────────── */
+[data-theme="dark"] {
+  --bg: #0d1117;
+  --bg-gradient: linear-gradient(160deg, #0d1117 0%, #0f1923 50%, #111827 100%);
+  --surface: rgba(255, 255, 255, 0.08);
+  --surface-strong: rgba(255, 255, 255, 0.13);
+  --surface-muted: rgba(255, 255, 255, 0.07);
+  --ink: #f0f6ff;
+  --ink-2: #c8d8ea;
+  --muted: #9ab0c8;
+  --subtle: #7a95ad;
+  --border: rgba(255, 255, 255, 0.10);
+  --border-strong: rgba(255, 255, 255, 0.25);
+  --accent: #5fbeff;
+  --accent-hover: #85c8ff;
+  --focus: #5fbeff;
+  --success: #7ef1b3;
+  --danger: #f87171;
+}
+
+[data-theme="dark"] .glass-card {
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.40), inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+[data-theme="dark"] .glass-inner {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+/* ── Base reset ───────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* ── Smooth theme transition ──────────────────────────────────── */
+*, *::before, *::after {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body {
+  margin: 0;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100dvh;
+  background: var(--bg-gradient);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Typography helpers ───────────────────────────────────────── */
+.display {
+  font-family: 'Space Grotesk', sans-serif;
+  letter-spacing: -0.03em;
+}
+.mono {
+  font-family: 'JetBrains Mono', Menlo, monospace;
+}
+
+/* ── Glass surface tokens ─────────────────────────────────────── */
+.glass-card {
+  background: rgba(255, 255, 255, 0.64);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.68);
+  box-shadow: 0 8px 32px rgba(18, 45, 69, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+.glass-inner {
+  background: rgba(255, 255, 255, 0.46);
+  border: 1px solid rgba(255, 255, 255, 0.56);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.58);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.66);
+}
+
+/* ── Spectral strip ───────────────────────────────────────────── */
+.spectral-strip {
+  height: 3px;
+  background: var(--spectral);
+  border-radius: 0 0 2px 2px;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 99px; }
+
+/* ── Reduced motion ───────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
