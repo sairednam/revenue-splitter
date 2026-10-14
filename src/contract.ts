@@ -1,4 +1,4 @@
-import artifact from '../contracts/out/RevenueSplitter.sol/RevenueSplitter.json';
+import artifact from '../contracts/contract-metadata/RevenueSplitter.json';
 import { getUsdc, requireChain } from '@/onchain-facts';
 
 export const ARC_MAINNET_CHAIN_ID = 5042;
